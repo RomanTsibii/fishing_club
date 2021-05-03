@@ -19,6 +19,7 @@ gem 'turbolinks', '~> 5'
 gem 'devise', '~> 4.8'
 gem 'haml-rails', '~> 2.0', '>= 2.0.1'
 gem 'jbuilder', '~> 2.7'
+gem 'rails_admin', '~> 2.1', '>= 2.1.1'
 gem 'rubocop-rails', '~> 2.9', '>= 2.9.1', require: false
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
