@@ -1,1 +1,7 @@
 %h2 hello
+- @users.each do |user|
+  %p=user.id
+  %p=user.full_name
+  %p=user.birthday
+  %p=image_tag(user.avatar, :size => "260x180") if user.avatar.attached?
+  %br

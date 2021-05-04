@@ -16,10 +16,12 @@ gem 'webpacker', '~> 5.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'aws-sdk-s3', '~> 1.94'
 gem 'devise', '~> 4.8'
 gem 'haml-rails', '~> 2.0', '>= 2.0.1'
 gem 'jbuilder', '~> 2.7'
 gem 'rails_admin', '~> 2.1', '>= 2.1.1'
+gem 'r_creds', '~> 1.0', '>= 1.0.2'
 gem 'rubocop-rails', '~> 2.9', '>= 2.9.1', require: false
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -27,7 +29,7 @@ gem 'rubocop-rails', '~> 2.9', '>= 2.9.1', require: false
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
