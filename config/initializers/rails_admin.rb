@@ -34,6 +34,37 @@ RailsAdmin.config do |config|
     delete
     show_in_app
 
+    config.model 'User' do
+      list do
+        field :id
+        field :full_name
+        field :avatar
+        field :active?
+      end
+
+      create do
+        field :first_name do
+          required true
+        end
+        field :last_name do
+          required true
+        end
+        field :phone_number
+        field :avatar
+        field :email
+        field :password
+      end
+
+      update do
+        field :first_name
+        field :last_name
+        field :phone_number
+        field :avatar
+        field :email
+        field :password
+      end
+    end
+
     ## With an audit adapter, you can add:
     # history_index
     # history_show

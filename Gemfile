@@ -18,9 +18,12 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'aws-sdk-s3', '~> 1.94'
 gem 'devise', '~> 4.8'
+gem 'devise-i18n', '~> 1.9', '>= 1.9.3'
 gem 'haml-rails', '~> 2.0', '>= 2.0.1'
 gem 'jbuilder', '~> 2.7'
 gem 'rails_admin', '~> 2.1', '>= 2.1.1'
+gem 'rails_admin-i18n', '~> 1.16', '>= 1.16.1'
+gem 'rails-i18n', '~> 6.0'
 gem 'r_creds', '~> 1.0', '>= 1.0.2'
 gem 'rubocop-rails', '~> 2.9', '>= 2.9.1', require: false
 # Use Redis adapter to run Action Cable in production

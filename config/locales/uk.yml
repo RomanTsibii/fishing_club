@@ -1,0 +1,16 @@
+uk:
+  activerecord:
+    models:
+      user:
+        one: Користувач
+        other: Користувачі
+    attributes:
+      user:
+        id: Ідентифікаційний номер
+        first_name: Ім'я
+        last_name: Прізвище
+        full_name: Ім'я та Прізвище
+        birthday: Дата народження
+        phone_number: Номер телефону
+        avatar: Аватар
+        active?: Статус

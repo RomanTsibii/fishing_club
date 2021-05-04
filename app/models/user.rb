@@ -6,7 +6,24 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
+  validates :email, :password, presence: false
+  validates :first_name, :last_name, presence: true
+
   def full_name
-    first_name + '' + last_name
+    [first_name, last_name].join(' ')
+  end
+
+  def active?
+    id.odd?
+  end
+
+  private
+
+  def password_required?
+    false
+  end
+
+  def email_required?
+    false
   end
 end
