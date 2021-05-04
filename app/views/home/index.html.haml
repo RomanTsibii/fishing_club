@@ -1,7 +1,21 @@
-%h2 hello
-- @users.each do |user|
-  %p=user.id
-  %p=user.full_name
-  %p=user.birthday
-  %p=image_tag(user.avatar, :size => "260x180") if user.avatar.attached?
+.container
+  %h2 Рибаки
   %br
+  %table.table
+    %thead
+      %tr
+        %th ID
+        %th Аватар
+        %th Прізвище
+        %th Ім'я
+        %th Дата народження
+        %th Статус
+    %tbody
+      - @users.each do |user|
+        %tr
+          %th= user.id
+          %td= image_tag user.avatar, :size => '50x50' if user.avatar.attached?
+          %td= user.last_name
+          %td= user.first_name
+          %td= user.birthday
+          %td= status_image_tag(user)
