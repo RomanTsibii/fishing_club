@@ -1,3 +1,15 @@
-- if user_signed_in?
-  = link_to "Log out", destroy_user_session_path, method: :delete
-
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  .container
+    %a.navbar-brand{href: root_path} Отинійська спілка рибаків
+    %button.navbar-toggler{"aria-controls" => "navbarsExample07", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarsExample07", "data-toggle" => "collapse", type: "button"}
+      %span.navbar-toggler-icon
+    #navbarsExample07.collapse.navbar-collapse
+      %ul.navbar-nav.mr-auto
+        %li.nav-item.active
+          = link_to 'Рибаки', root_path, class: 'nav-link'
+          %span.sr-only (current)
+        %li.nav-item
+          %a.nav-link{href: "#TODO"} Галерея
+        %li.nav-item
+          %a.nav-link{href: "#TODO"} Про спілку
+      %form.form-inline.my-2.my-md-0

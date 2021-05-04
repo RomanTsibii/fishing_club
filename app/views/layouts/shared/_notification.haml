@@ -1,4 +1,6 @@
-%p.notice
-  = notice
-%p.alert
-  = alert
+- if notice.present?
+  %p.notice
+    = notice
+- if alert.present?
+  %p.alert
+    = alert
