@@ -7,6 +7,9 @@ en:
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
     failure:
+      not_admin: You are not an admin
+      password_and_confirmation_password_does_not_match: Password and confirmation password does not match
+      email_and_password_can_not_be_blank: Email or password can`t be blank
       already_authenticated: "You are already signed in."
       inactive: "Your account is not activated yet."
       invalid: "Invalid %{authentication_keys} or password."

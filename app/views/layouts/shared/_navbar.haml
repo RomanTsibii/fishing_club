@@ -13,3 +13,10 @@
         %li.nav-item
           %a.nav-link{href: "#TODO"} Про спілку
       %form.form-inline.my-2.my-md-0
+      %ul.navbar-nav
+        - if current_user.present?
+          %li.nav-item.active
+            = link_to t('devise.sessions.destroy.sign_out'), destroy_user_session_path, method: :delete, class: "btn btn-outline-light"
+        - else
+          %li.nav-item.active
+            = link_to t('devise.sessions.new.sign_in'), new_user_session_path, class: "btn btn-outline-light"

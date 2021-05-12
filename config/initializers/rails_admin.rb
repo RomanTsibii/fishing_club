@@ -7,6 +7,12 @@ RailsAdmin.config do |config|
     warden.authenticate! scope: :user
   end
   config.current_user_method(&:current_user)
+  config.authorize_with do
+    unless current_user.admin?
+      flash[:alert] = t 'devise.failure.not_admin'
+      redirect_to main_app.root_path
+    end
+  end
 
   ## == CancanCan ==
   # config.authorize_with :cancancan
