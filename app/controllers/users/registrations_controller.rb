@@ -15,6 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         return redirect_back(fallback_location: root_path)
       end
     end
+    UserMailer.with(user: resource).welcome_email.deliver_later
   end
 
   private

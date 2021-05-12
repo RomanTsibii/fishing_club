@@ -8,5 +8,10 @@ Rails.application.routes.draw do
                registrations: 'users/registrations'
              }
 
+  authenticate :user, lambda { |u| u.admin? } do
+    require 'sidekiq/web'
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 end

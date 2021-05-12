@@ -28,7 +28,8 @@ gem 'r_creds', '~> 1.0', '>= 1.0.2'
 gem 'rolify', '~> 6.0'
 gem 'rubocop-rails', '~> 2.9', '>= 2.9.1', require: false
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.2', '>= 4.2.5'
+gem 'sidekiq', '~> 6.2', '>= 6.2.1'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -44,6 +45,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'letter_opener', '~> 1.7'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
