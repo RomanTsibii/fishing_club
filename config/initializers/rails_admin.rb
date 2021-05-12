@@ -30,7 +30,7 @@ RailsAdmin.config do |config|
   # config.show_gravatar = true
 
   # Visible models in admins
-  config.included_models = %w[User]
+  config.included_models = %w[User Payment Spend]
 
   config.actions do
     dashboard                     # mandatory
@@ -73,6 +73,51 @@ RailsAdmin.config do |config|
         field :password
       end
     end
+
+    config.model 'Payment' do
+      list do
+        field :user_full_name
+        field :spend
+        field :purchased?
+      end
+
+      create do
+        field :user_id, :enum do
+          enum do
+            User.all.collect {|p| [p.full_name, p.id]}
+          end
+        end
+        field :spend
+        field :purchased_at
+      end
+    end
+
+    config.model 'Spend' do
+      list do
+        field :name
+        field :price
+        field :created_at
+      end
+
+      create do
+        field :name do
+          required true
+        end
+        field :price do
+          required true
+        end
+      end
+
+      update do
+        field :name do
+          required true
+        end
+        field :price do
+          required true
+        end
+      end
+    end
+
 
     ## With an audit adapter, you can add:
     # history_index

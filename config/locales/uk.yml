@@ -1,6 +1,12 @@
 uk:
   activerecord:
     models:
+      payment:
+        one: Оплата
+        other: Оплати
+      spend:
+        one: Витрата
+        other: Витрати
       user:
         one: Користувач
         other: Користувачі
@@ -14,3 +20,14 @@ uk:
         phone_number: Номер телефону
         avatar: Аватар
         active?: Статус
+      spend:
+        id: Ідентифікаційний номер
+        name: Назва
+        price: Ціна
+        created_at: Дата створення
+      payment:
+        id: Ідентифікаційний номер
+        spend: Витрата
+        user: Користувач
+        purchased?: Оплачено?
+        user_full_name: Користувач
