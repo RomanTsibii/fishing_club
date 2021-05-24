@@ -1,0 +1,17 @@
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th{scope: "col"}= t 'activerecord.attributes.spend.name'
+      %th{scope: "col"}= t 'activerecord.attributes.spend.price'
+      %th{scope: "col"}= t 'activerecord.attributes.payment.purchased?'
+      %th{scope: "col"}= t 'actions'
+  %tbody
+    - user.payments.each do |payment|
+      %tr
+        %th= payment.spend.name
+        %td= payment.spend.price
+        %td= payment.purchased?
+        %td.btn-group
+          = link_to t('activerecord.models.payment.actions.payment!'), '#', class: 'btn btn-success'
+          = link_to t('activerecord.models.payment.actions.reset!'), '#', class: 'btn btn-danger'

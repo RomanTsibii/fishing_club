@@ -1,0 +1,52 @@
+%main
+  .row.g-3
+    -# User information
+    .col-md-3.col-lg-4
+      .card
+        .card-body
+          %h4.d-flex.justify-content-between.align-items-center.mb-3
+            %h4= t 'activerecord.attributes.user.full_name'
+            %h6= @user.full_name
+          %h4.d-flex.mb-3
+            = image_tag @user.avatar_image, class: 'img-fluid'
+          %ul.list-group.mb-3
+            %li.list-group-item.d-flex.justify-content-between.lh-sm
+              %h6.my-0= t 'activerecord.attributes.user.status'
+              %span.text-muted
+                - if @user.status
+                  = t 'status.active'
+                  %span.dot.dot-success
+                -else
+                  = t 'status.inactive'
+                  %span.dot.dot-danger
+            - if current_user.admin?
+              %li.list-group-item.d-flex.justify-content-between.lh-sm
+                %div
+                  %h6.my-0= t 'activerecord.attributes.user.phone_number'
+                  %small.text-muted= @user.phone_number.present? ? @user.phone_number : '+380...'
+              %li.list-group-item.d-flex.justify-content-between.lh-sm
+                %div
+                  %h6.my-0= t 'activerecord.attributes.user.birthday'
+                  %small.text-muted= @user.birthday
+    -# Other cards
+    .col-md-5.col-lg-8
+      .card
+        .card-body
+          .row.mt-3.mb-2
+            .col-auto
+              -# Tab panel
+              %ul.nav.nav-tabs
+                %li.nav-item
+                  %a.nav-link.active{"data-toggle" => "tab", href: "#booty"} Трофеї
+                - if current_user.admin?
+                  %li
+                    %a.nav-link{"data-toggle" => "tab", href: "#payment"} Оплати
+          %ul.nav.nav-tabs
+            .tab-content{style: "width: 100%;"}
+              #booty.tab-pane.fade.show.active
+                image
+                image
+                image
+              - if current_user.admin?
+                #payment.tab-pane.fade
+                  = render 'payments', user: @user
