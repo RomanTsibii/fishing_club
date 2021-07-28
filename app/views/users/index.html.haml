@@ -1,21 +1,22 @@
 .container
   %h2 Рибаки
   %br
-  %table.table
-    %thead
-      %tr
-        %th ID
-        %th Аватар
-        %th Прізвище
-        %th Ім'я
-        %th Дата народження
-        %th Статус
-    %tbody
-      - @users.each do |user|
+  .card
+    %table.table.table-hover
+      %thead
         %tr
-          %th= user.id
-          %td= image_tag user.avatar, :size => '50x50' if user.avatar.attached?
-          %td= user.last_name
-          %td= user.first_name
-          %td= user.birthday
-          %td= status_image_tag(user)
+          %th ID
+          %th Аватар
+          %th Прізвище
+          %th Ім'я
+          %th Дата народження
+          %th Статус
+      %tbody
+        - @users.each do |user|
+          %tr.clickable-row{ 'data-href': user_path(user.id)}
+            %th= user.id
+            %td= image_tag user.avatar_image, :size => '50x50'
+            %td= user.last_name
+            %td= user.first_name
+            %td= user.birthday
+            %td= status_image_tag(user)

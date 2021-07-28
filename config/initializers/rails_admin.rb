@@ -48,7 +48,7 @@ RailsAdmin.config do |config|
         field :id
         field :full_name
         field :avatar
-        field :active?
+        field :status
       end
 
       create do

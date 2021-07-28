@@ -1,9 +1,20 @@
 uk:
+  'true': Так
+  'false': Ні
+  actions: Дії
+  status:
+    active: Активовано
+    inactive: Неактивовано
+  confirmation:
+    are_you_sure?: Ви впевнені?
   activerecord:
     models:
       payment:
         one: Оплата
         other: Оплати
+        actions:
+          payment!: Оплатити!
+          reset!: Обнулити!
       spend:
         one: Витрата
         other: Витрати
@@ -19,7 +30,7 @@ uk:
         birthday: Дата народження
         phone_number: Номер телефону
         avatar: Аватар
-        active?: Статус
+        status: Статус
       spend:
         id: Ідентифікаційний номер
         name: Назва

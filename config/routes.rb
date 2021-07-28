@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
-  root to: "home#index"
 
-  resources :home, only: %i[index show]
+  root to: "users#index"
+
+  resources :users, only: %i[index show] do
+    resources :payments, only: [] do
+      get :active
+      get :inactive
+    end
+  end
 
   devise_for :users,
              controllers: {
