@@ -1,4 +1,3 @@
-
 %table.table.table-striped
   %thead
     %tr
@@ -11,7 +10,15 @@
       %tr
         %th= payment.spend.name
         %td= payment.spend.price
-        %td= payment.purchased?
+        %td= bool_translate(payment.purchased?)
         %td.btn-group
-          = link_to t('activerecord.models.payment.actions.payment!'), '#', class: 'btn btn-success'
-          = link_to t('activerecord.models.payment.actions.reset!'), '#', class: 'btn btn-danger'
+          - if payment.purchased?
+            = link_to t('activerecord.models.payment.actions.reset!'),
+             user_payment_inactive_path(user.id, payment.id),
+              class: 'btn btn-danger',
+               data: { confirm: t('confirmation.are_you_sure?')}
+          - else
+            = link_to t('activerecord.models.payment.actions.payment!'),
+             user_payment_active_path(user.id, payment.id),
+              class: 'btn btn-success'
+

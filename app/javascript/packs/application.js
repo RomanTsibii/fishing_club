@@ -14,3 +14,9 @@ import "../stylesheets/application.scss"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+jQuery(document).ready(function($) {
+    $(".clickable-row").click(function() {
+        window.location = $(this).data("href");
+    });
+});

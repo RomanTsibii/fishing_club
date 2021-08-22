@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   root to: "users#index"
 
+  resources :users, only: %i[index show] do
+    resources :payments, only: [] do
+      get :active
+      get :inactive
+    end
+  end
+
   # resources :home, only: %i[index show]
   devise_for :users,
              controllers: {

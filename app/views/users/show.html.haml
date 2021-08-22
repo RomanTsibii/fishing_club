@@ -1,6 +1,6 @@
 %main
   .row.g-3
-    -# User information
+    -# Left card
     .col-md-3.col-lg-4
       .card
         .card-body
@@ -28,7 +28,7 @@
                 %div
                   %h6.my-0= t 'activerecord.attributes.user.birthday'
                   %small.text-muted= @user.birthday
-    -# Other cards
+    -# Right card
     .col-md-5.col-lg-8
       .card
         .card-body
@@ -41,12 +41,11 @@
                 - if current_user.admin?
                   %li
                     %a.nav-link{"data-toggle" => "tab", href: "#payment"} Оплати
+          -# Tab content
           %ul.nav.nav-tabs
             .tab-content{style: "width: 100%;"}
               #booty.tab-pane.fade.show.active
-                image
-                image
-                image
+                = render 'booty'
               - if current_user.admin?
                 #payment.tab-pane.fade
                   = render 'payments', user: @user

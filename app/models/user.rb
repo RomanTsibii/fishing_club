@@ -19,10 +19,16 @@ class User < ApplicationRecord
   validates :email, uniqueness: true unless :email.blank?
 
   def full_name
-    [first_name, last_name].join(' ')
+    [first_name, last_name].each(&:capitalize!).join(' ')
   end
 
-  def active?
+  def avatar_image
+    return avatar if avatar.attached?
+
+    'fish_man.jpg'
+  end
+
+  def status
     id.odd?
   end
 
