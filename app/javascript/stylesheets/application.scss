@@ -1,6 +1,11 @@
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Merriweather:400,700');
+@import 'dots';
 
 body {
   background-color: #f5f5f5;
+}
+
+.table-hover tr:hover {
+  cursor: pointer;
 }

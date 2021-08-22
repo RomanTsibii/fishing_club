@@ -1,0 +1,24 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th{scope: "col"}= t 'activerecord.attributes.spend.name'
+      %th{scope: "col"}= t 'activerecord.attributes.spend.price'
+      %th{scope: "col"}= t 'activerecord.attributes.payment.purchased?'
+      %th{scope: "col"}= t 'actions'
+  %tbody
+    - user.payments.each do |payment|
+      %tr
+        %th= payment.spend.name
+        %td= payment.spend.price
+        %td= bool_translate(payment.purchased?)
+        %td.btn-group
+          - if payment.purchased?
+            = link_to t('activerecord.models.payment.actions.reset!'),
+             user_payment_inactive_path(user.id, payment.id),
+              class: 'btn btn-danger',
+               data: { confirm: t('confirmation.are_you_sure?')}
+          - else
+            = link_to t('activerecord.models.payment.actions.payment!'),
+             user_payment_active_path(user.id, payment.id),
+              class: 'btn btn-success'
+
